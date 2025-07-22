@@ -1,0 +1,82 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amazon Rain Forest",
+        "description": "Tropical rainforest region primarily located in the Amazon Basin.",
+        "climate": "Tropical rainforest climate",
+        "note": "Lat: 5\u00b0N ~ 15\u00b0S, Lon: 78\u00b0W ~ 44\u00b0W"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -78.0,
+              -15.0
+            ],
+            [
+              -44.0,
+              -15.0
+            ],
+            [
+              -44.0,
+              5.0
+            ],
+            [
+              -78.0,
+              5.0
+            ],
+            [
+              -78.0,
+              -15.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eucalyptus Plantation Belt",
+        "description": "Industrial eucalyptus plantations for pulp and timber in Brazil.",
+        "regions": [
+          "Minas Gerais",
+          "S\u00e3o Paulo",
+          "Paran\u00e1",
+          "Rio Grande do Sul"
+        ],
+        "note": "Planted on degraded lands outside the Amazon, with global pulp/timber exports."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -55.0,
+              -33.0
+            ],
+            [
+              -42.0,
+              -33.0
+            ],
+            [
+              -42.0,
+              -15.0
+            ],
+            [
+              -55.0,
+              -15.0
+            ],
+            [
+              -55.0,
+              -33.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amazon & Eucalyptus Zones</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; }
+    #map { height: 100vh; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([-10, -60], 4);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    var geojsonData = {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "Amazon Rain Forest",
+            "description": "Tropical rainforest region primarily located in the Amazon Basin.",
+            "climate": "Tropical rainforest climate"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [[
+              [-78.0, -15.0],
+              [-44.0, -15.0],
+              [-44.0, 5.0],
+              [-78.0, 5.0],
+              [-78.0, -15.0]
+            ]]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "Eucalyptus Plantation Belt",
+            "description": "Industrial eucalyptus plantations in southeastern and southern Brazil.",
+            "note": "Located in Minas Gerais, São Paulo, Paraná, Rio Grande do Sul."
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [[
+              [-55.0, -33.0],
+              [-42.0, -33.0],
+              [-42.0, -15.0],
+              [-55.0, -15.0],
+              [-55.0, -33.0]
+            ]]
+          }
+        }
+      ]
+    };
+
+    L.geoJSON(geojsonData, {
+      style: function (feature) {
+        return {
+          color: feature.properties.name === "Amazon Rain Forest" ? "green" : "blue",
+          weight: 2,
+          fillOpacity: 0.3
+        };
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(
+          `<b>${feature.properties.name}</b><br>${feature.properties.description || ""}<br>${feature.properties.note || ""}`
+        );
+      }
+    }).addTo(map);
+  </script>
+</body>
+</html>
