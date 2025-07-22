@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eucalyptus Cluster Map - Triângulo Mineiro</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; }
+    #map { height: 100vh; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([-19.5, -48.0], 8);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const geojsonData = {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "Uberaba",
+            "type": "Eucalyptus Hub",
+            "description": "Key eucalyptus plantation cluster for pulp and charcoal production."
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-47.9319, -19.7475]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "Araguari",
+            "type": "Eucalyptus Hub",
+            "description": "Eucalyptus plantation hub neighboring Uberaba in Triângulo Mineiro."
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-48.1872, -18.6472]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "Suzano Uberaba (approximate)",
+            "type": "Pulp Mill",
+            "description": "Indicative location of Suzano’s pulp operations near Uberaba."
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-48.0000, -19.8500]
+          }
+        }
+      ]
+    };
+
+    L.geoJSON(geojsonData, {
+      pointToLayer: function (feature, latlng) {
+        return L.marker(latlng);
+      },
+      onEachFeature: function (feature, layer) {
+        const props = feature.properties;
+        const popup = `<b>${props.name}</b><br>Type: ${props.type}<br>${props.description}`;
+        layer.bindPopup(popup);
+      }
+    }).addTo(map);
+  </script>
+</body>
+</html>

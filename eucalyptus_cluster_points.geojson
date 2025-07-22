@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Uberaba",
+        "type": "Eucalyptus Hub",
+        "description": "Key eucalyptus plantation cluster for pulp and charcoal production."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -47.9319,
+          -19.7475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Araguari",
+        "type": "Eucalyptus Hub",
+        "description": "Eucalyptus plantation hub neighboring Uberaba in Tri\u00e2ngulo Mineiro."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -48.1872,
+          -18.6472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Suzano Uberaba (approximate)",
+        "type": "Pulp Mill",
+        "description": "Indicative location of Suzano\u2019s pulp operations near Uberaba."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -48.0,
+          -19.85
+        ]
+      }
+    }
+  ]
+}
