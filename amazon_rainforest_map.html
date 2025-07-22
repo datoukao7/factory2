@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amazon Rainforest Map</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; }
+    #map { width: 100%; height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([0, -56.5], 4);  // Centered in Amazon Basin
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const amazonGeoJSON = {
+      "type": "FeatureCollection",
+      "features": [{
+        "type": "Feature",
+        "properties": {
+          "name": "Amazon Rain Forest",
+          "location_description": "Amazon Basin",
+          "area": "2.7 million square miles",
+          "climate": "Tropical rainforest climate",
+          "countries": [
+            "Brazil", "Colombia", "Peru", "Venezuela", "Ecuador", "Bolivia",
+            "Guyana", "Suriname", "French Guiana"
+          ],
+          "famous_landmark": "Amazon River"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [[
+            [-73.0, -10.0],
+            [-40.0, -10.0],
+            [-40.0, 10.0],
+            [-73.0, 10.0],
+            [-73.0, -10.0]
+          ]]
+        }
+      }]
+    };
+
+    L.geoJSON(amazonGeoJSON, {
+      style: {
+        color: "green",
+        weight: 2,
+        fillOpacity: 0.4
+      },
+      onEachFeature: function (feature, layer) {
+        const props = feature.properties;
+        const countries = props.countries.join(", ");
+        const popupContent = `
+          <b>${props.name}</b><br/>
+          Location: ${props.location_description}<br/>
+          Area: ${props.area}<br/>
+          Climate: ${props.climate}<br/>
+          Countries: ${countries}<br/>
+          Landmark: ${props.famous_landmark}
+        `;
+        layer.bindPopup(popupContent);
+      }
+    }).addTo(map);
+  </script>
+</body>
+</html>

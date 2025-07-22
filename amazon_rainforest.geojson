@@ -1,0 +1,53 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amazon Rain Forest",
+        "location_description": "Amazon Basin",
+        "area": "2.7 million square miles",
+        "climate": "Tropical rainforest climate",
+        "countries": [
+          "Brazil",
+          "Colombia",
+          "Peru",
+          "Venezuela",
+          "Ecuador",
+          "Bolivia",
+          "Guyana",
+          "Suriname",
+          "French Guiana"
+        ],
+        "famous_landmark": "Amazon River"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -73.0,
+              -10.0
+            ],
+            [
+              -40.0,
+              -10.0
+            ],
+            [
+              -40.0,
+              10.0
+            ],
+            [
+              -73.0,
+              10.0
+            ],
+            [
+              -73.0,
+              -10.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
