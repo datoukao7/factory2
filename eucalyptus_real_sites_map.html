@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Eucalyptus Industry Sites</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; }
+        #map { width: 100%; height: 100vh; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([-18.7, -48.0], 9);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    var geojsonData = {"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"name": "Aperam BioEnergia plantations", "company": "Aperam BioEnergia", "note": "Charcoal & eucalyptus plantations near Turmalina, MG"}, "geometry": {"type": "Point", "coordinates": [-47.9, -18.3]}}, {"type": "Feature", "properties": {"name": "LD Celulose mill region", "company": "LD Celulose S.A.", "note": "Plantations and dissolving pulp mill area between Indian\u00f3polis and Araguari, MG"}, "geometry": {"type": "Point", "coordinates": [-48.05, -18.7]}}, {"type": "Feature", "properties": {"name": "Dexco eucalyptus plantations", "company": "Dexco", "note": "Managed eucalyptus stands in Tri\u00e2ngulo Mineiro (MG)"}, "geometry": {"type": "Point", "coordinates": [-48.1, -18.8]}}, {"type": "Feature", "properties": {"name": "Nearby Eucalyptus Plantation", "company": null, "note": "Close to Aer\u00f3dromo Picarra\u0303o, Tri\u00e2ngulo Mineiro"}, "geometry": {"type": "Point", "coordinates": [-47.87941677234653, -18.71379371684371]}}]};
+
+    L.geoJSON(geojsonData, {
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng);
+        },
+        onEachFeature: function (feature, layer) {
+            const p = feature.properties;
+            const content = `<b>${p.name}</b><br>Company: ${p.company || 'N/A'}<br>${p.note}`;
+            layer.bindPopup(content);
+        }
+    }).addTo(map);
+</script>
+</body>
+</html>

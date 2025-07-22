@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Aperam BioEnergia plantations",
+        "company": "Aperam BioEnergia",
+        "note": "Charcoal & eucalyptus plantations near Turmalina, MG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -47.9,
+          -18.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "LD Celulose mill region",
+        "company": "LD Celulose S.A.",
+        "note": "Plantations and dissolving pulp mill area between Indian\u00f3polis and Araguari, MG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -48.05,
+          -18.7
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dexco eucalyptus plantations",
+        "company": "Dexco",
+        "note": "Managed eucalyptus stands in Tri\u00e2ngulo Mineiro (MG)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -48.1,
+          -18.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nearby Eucalyptus Plantation",
+        "company": null,
+        "note": "Close to Aer\u00f3dromo Picarra\u0303o, Tri\u00e2ngulo Mineiro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -47.87941677234653,
+          -18.71379371684371
+        ]
+      }
+    }
+  ]
+}
