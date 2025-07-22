@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dexco eucalyptus plantations",
+        "company": "Dexco",
+        "note": "Managed eucalyptus stands in Tri\u00e2ngulo Mineiro (MG)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -48.1,
+          -18.8
+        ]
+      }
+    }
+  ]
+}
