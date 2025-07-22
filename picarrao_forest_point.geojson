@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nearby Eucalyptus Plantation",
+        "type": "Eucalyptus Plantation",
+        "note": "Close to Aer\u00f3dromo Picarra\u0303o, Tri\u00e2ngulo Mineiro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -47.87941677234653,
+          -18.71379371684371
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Eucalyptus Plantation Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 100vh; margin: 0; padding: 0; }
+        html, body { margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([-18.7137937, -47.8794168], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    var geojsonFeature = {"type": "Feature", "properties": {"name": "Nearby Eucalyptus Plantation", "type": "Eucalyptus Plantation", "note": "Close to Aer\u00f3dromo Picarra\u0303o, Tri\u00e2ngulo Mineiro"}, "geometry": {"type": "Point", "coordinates": [-47.87941677234653, -18.71379371684371]}};
+
+    L.geoJSON(geojsonFeature, {
+        onEachFeature: function (feature, layer) {
+            var p = feature.properties;
+            layer.bindPopup("<b>" + p.name + "</b><br>Type: " + p.type + "<br>" + p.note);
+        }
+    }).addTo(map);
+</script>
+</body>
+</html>
